@@ -6,25 +6,17 @@ type DefaultLayoutProps = {
   children: React.ReactNode;
   style?: ViewStyle;
   padding?: number;
-  safeArea?: boolean;
 };
 
 export default function DefaultLayout({
   children,
   style,
   padding = 16,
-  safeArea = true,
 }: DefaultLayoutProps) {
-  const Container = safeArea ? SafeAreaView : View;
-
-  return (
-    <SafeAreaView style={[styles.container, { padding }]}>
-      <View style={[styles.content, style]}>{children}</View>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
+  // ----------------------------------------------------------------------------------------------------
+  // MARK: Styles
+  // ----------------------------------------------------------------------------------------------------
+  const styles = StyleSheet.create({
     container: {
       flex: 1,
     },
@@ -34,4 +26,13 @@ const styles = StyleSheet.create({
       alignItems: "center",
     },
   });
-  
+
+  // ----------------------------------------------------------------------------------------------------
+  // MARK: Main Component UI
+  // ----------------------------------------------------------------------------------------------------
+  return (
+    <SafeAreaView style={[styles.container, { padding }]}>
+      <View style={[styles.content, style]}>{children}</View>
+    </SafeAreaView>
+  );
+}
