@@ -1,12 +1,12 @@
+import { useThemeColor } from "@/hooks/useThemeColor";
 import {
-  TextStyle,
   StyleProp,
   StyleSheet,
+  TextStyle,
   TouchableOpacity,
   ViewStyle,
 } from "react-native";
 import Text from "../Text";
-import { useThemeColor } from "@/hooks/useThemeColor";
 
 type ButtonProps = {
   buttonText: string;

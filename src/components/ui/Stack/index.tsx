@@ -1,13 +1,4 @@
-import {
-  TextStyle,
-  StyleProp,
-  StyleSheet,
-  TouchableOpacity,
-  ViewStyle,
-  View,
-} from "react-native";
-import Text from "../Text";
-import { useThemeColor } from "@/hooks/useThemeColor";
+import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 
 type StackProps = {
   children: React.ReactNode;
@@ -22,10 +13,6 @@ export default function Stack({
   direction,
   style,
 }: StackProps) {
-  // ----------------------------------------------------------------------------------------------------
-  // MARK: States & Constants
-  // ----------------------------------------------------------------------------------------------------
-
   // ----------------------------------------------------------------------------------------------------
   // MARK: Styles
   // ----------------------------------------------------------------------------------------------------
