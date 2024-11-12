@@ -6,13 +6,13 @@
  * You can remove the `reset-project` script from package.json and safely delete this file after running it.
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 const root = process.cwd();
-const oldDirPath = path.join(root, 'src/app');
-const newDirPath = path.join(root, 'src/app-example');
-const newAppDirPath = path.join(root, 'src/app');
+const oldDirPath = path.join(root, "src/app");
+const newDirPath = path.join(root, "src/app-example");
+const newAppDirPath = path.join(root, "src/app");
 
 const indexContent = `import { Text, View } from "react-native";
 
@@ -46,27 +46,27 @@ fs.rename(oldDirPath, newDirPath, (error) => {
   if (error) {
     return console.error(`Error renaming directory: ${error}`);
   }
-  console.log('src/app moved to src/app-example.');
+  console.log("src/app moved to src/app-example.");
 
   fs.mkdir(newAppDirPath, { recursive: true }, (error) => {
     if (error) {
       return console.error(`Error creating new app directory: ${error}`);
     }
-    console.log('New src/app directory created.');
+    console.log("New src/app directory created.");
 
-    const indexPath = path.join(newAppDirPath, 'index.tsx');
+    const indexPath = path.join(newAppDirPath, "index.tsx");
     fs.writeFile(indexPath, indexContent, (error) => {
       if (error) {
         return console.error(`Error creating index.tsx: ${error}`);
       }
-      console.log('src/app/index.tsx created.');
+      console.log("src/app/index.tsx created.");
 
-      const layoutPath = path.join(newAppDirPath, '_layout.tsx');
+      const layoutPath = path.join(newAppDirPath, "_layout.tsx");
       fs.writeFile(layoutPath, layoutContent, (error) => {
         if (error) {
           return console.error(`Error creating _layout.tsx: ${error}`);
         }
-        console.log('src/app/_layout.tsx created.');
+        console.log("src/app/_layout.tsx created.");
       });
     });
   });
